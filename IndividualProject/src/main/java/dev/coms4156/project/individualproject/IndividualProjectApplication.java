@@ -1,14 +1,15 @@
 package dev.coms4156.project.individualproject;
 
 import jakarta.annotation.PreDestroy;
-import java.util.*;
-import org.springframework.boot.*;
+import java.util.HashMap;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Class contains all the startup logic for the application.
  *
- * DO NOT MODIFY ANYTHING BELOW THIS POINT WITH REGARD TO FUNCTIONALITY
+ * <p>DO NOT MODIFY ANYTHING BELOW THIS POINT WITH REGARD TO FUNCTIONALITY
  * YOU MAY MAKE STYLE/REFACTOR MODIFICATIONS AS NEEDED
  */
 @SpringBootApplication
@@ -34,14 +35,14 @@ public class IndividualProjectApplication implements CommandLineRunner {
    * @param args A {@code String[]} of any potential runtime args
    */
   public void run(String[] args) {
-      for (String arg : args) {
-        if (arg.equals("setup")) {
-          myFileDatabase = new MyFileDatabase(1, "./data.txt");
-          resetDataFile();
-          System.out.println("System Setup");
-          return;
-        }
+    for (String arg : args) {
+      if (arg.equals("setup")) {
+        myFileDatabase = new MyFileDatabase(1, "./data.txt");
+        resetDataFile();
+        System.out.println("System Setup");
+        return;
       }
+    }
     myFileDatabase = new MyFileDatabase(0, "./data.txt");
     System.out.println("Start up");
   }
